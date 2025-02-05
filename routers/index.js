@@ -4,13 +4,15 @@ const songsRoute = require ('./songsRoute')
 const profilesRoute = require('./profilesRoute')
 const usersRoute = require ('./usersRoute')
 const userController = require ('../controllers/userController')
+const { isAuthenticated } = require('../middlewares/authentication')
 
-// router.use('/genres', genresRoute)
-// router.use('/songs', songsRoute)
-// router.use('/profiles', profilesRoute)
+
 //login
 router.get('/register', userController.userRegister)
-// router.get('/login', userController.userLogin)
+router.get('/login', userController.userLogin)
+
+router.use(isAuthenticated)
+
 
 
 
