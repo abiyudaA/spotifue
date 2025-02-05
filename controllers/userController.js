@@ -33,7 +33,20 @@ class UserController {
 
       res.send(err);
     }
+
+    static async userLogin (req, res) {
+        try {
+
+            res.render ('login')
+        } catch (err) {
+            console.log (err)
+
+            res.send (err)
+        }
+    }
+
   }
+  
 }
 
 module.exports = UserController;
