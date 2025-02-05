@@ -10,6 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       duration: {
@@ -36,6 +37,7 @@ module.exports = {
         onDelete: "cascade",
       },
       songUrl: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {
