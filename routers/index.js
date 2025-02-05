@@ -10,6 +10,7 @@ const userController = require ('../controllers/userController')
 // router.use('/profiles', profilesRoute)
 //login
 router.get('/register', userController.userRegister)
+router.post('/register', userController.saveUserRegister)
 // router.get('/login', userController.userLogin)
 
 
