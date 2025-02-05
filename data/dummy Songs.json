@@ -1,0 +1,38 @@
+[{
+  "id": 1,
+  "title": "lagunya bernadia",
+  "duration": 5,
+  "GenreId": 1,
+  "UserId": 1,
+  "songsURL": "masukinLinknya"
+},
+{
+  "id": 2,
+  "title": "lagunya ardito",
+  "duration": 3,
+  "GenreId": 2,
+  "UserId": 2,
+  "songsURL": "masukinLinknya"
+},
+{
+  "id": 3,
+  "title": "lagunya demas",
+  "duration": 4,
+  "GenreId": 3,
+  "UserId": 3,
+  "songsURL": "masukinLinknya"
+},{
+  "id": 4,
+  "title": "lagunya wibu",
+  "duration": 5,
+  "GenreId": 4,
+  "UserId": 4,
+  "songsURL": "masukinLinknya"
+},{
+  "id": 5,
+  "title": "lagunya kito",
+  "duration": 5,
+  "GenreId": 5,
+  "UserId": 5,
+  "songsURL": "masukinLinknya"
+}]
