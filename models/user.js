@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -11,17 +9,66 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.Profile)
+      User.hasOne(models.Profile);
     }
   }
-  User.init({
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    role: DataTypes.STRING,
-    username: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
+  User.init(
+    {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: {
+          msg: "Email must be unique",
+        },
+        validate: {
+          notEmpty: {
+            msg: "Email is required",
+          },
+          notEmpty: {
+            msg: "Email is required",
+          },
+          isEmail: {
+            msg: "Must be email formt",
+          },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Password is required",
+          },
+          notEmpty: {
+            msg: "Password is required",
+          },
+          min: {
+            args: 6,
+            msg: "Min Password 6 Character",
+          },
+        },
+      },
+      role: {
+        type: DataTypes.STRING,
+        defaultValue: "Listener",
+      },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Username is required",
+          },
+          notEmpty: {
+            msg: "Username is required",
+          },
+        },
+      },
+    },
+    {
+      sequelize,
+      modelName: "User",
+    }
+  );
   return User;
 };
