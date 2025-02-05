@@ -20,7 +20,8 @@ module.exports = {
         onDelete: "cascade",
       },
       profileName: {
-        type: Sequelize.STRING,
+        allowNull: false,
+        type: Sequelize.STRING
       },
       profilePicture: {
         type: Sequelize.STRING,
