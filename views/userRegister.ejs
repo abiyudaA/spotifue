@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
-<body>
-    <h1>NGETES REGISTER</h1>
-    <form action=""></form>
+
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-96">
+        <h2 class="text-white text-2xl font-bold text-center mb-4">Join the Music Universe</h2>
+        <form action="/register" method="POST" class="space-y-4">
+            <div>
+                <label for="email" class="text-gray-300 block mb-1">Email</label>
+                <input type="email" id="email" name="email" required 
+                    class="w-full p-2 rounded bg-gray-700 text-white focus:ring focus:ring-indigo-500">
+            </div>
+            <div>
+                <label for="username" class="text-gray-300 block mb-1">Username</label>
+                <input type="text" id="username" name="username" required 
+                    class="w-full p-2 rounded bg-gray-700 text-white focus:ring focus:ring-indigo-500">
+            </div>
+            <div>
+                <label for="password" class="text-gray-300 block mb-1">Password</label>
+                <input type="password" id="password" name="password" required 
+                    class="w-full p-2 rounded bg-gray-700 text-white focus:ring focus:ring-indigo-500">
+            </div>
+            <div>
+                <label for="role" class="text-gray-300 block mb-1">Register as</label>
+                <select id="role" name="role" required 
+                    class="w-full p-2 rounded bg-gray-700 text-white focus:ring focus:ring-indigo-500">
+                    <option value="artist">🎤 Artist</option>
+                    <option value="listener">🎧 Listener</option>
+                </select>
+            </div>
+            <button type="submit" 
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Register</button>
+        </form>
+    </div>
+
 </body>
 </html>
