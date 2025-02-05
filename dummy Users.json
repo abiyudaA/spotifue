@@ -1,0 +1,31 @@
+[{
+  "id": 1,
+  "email": "mgronno0@nbcnews.com",
+  "password": "cS7=$k%z)/P@}S",
+  "role": "Listener",
+  "username": "tbohman0"
+}, {
+  "id": 2,
+  "email": "hschimank1@toplist.cz",
+  "password": "bN3=YnFzLINkjdef",
+  "role": "Artist",
+  "username": "eshreenan1"
+}, {
+  "id": 3,
+  "email": "ktemperley2@seesaa.net",
+  "password": "bQ4'oN>jgcRx",
+  "role": "Listener",
+  "username": "seades2"
+}, {
+  "id": 4,
+  "email": "hdarrow3@opera.com",
+  "password": "nE2~EqxF.Ni2e/>0",
+  "role": "Artist",
+  "username": "aciardo3"
+}, {
+  "id": 5,
+  "email": "ljeves4@sogou.com",
+  "password": "cM0GrcvE.",
+  "role": "Listener",
+  "username": "lgavrielly4"
+}]
