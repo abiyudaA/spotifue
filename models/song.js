@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-    songUrl: {
+    songURL: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

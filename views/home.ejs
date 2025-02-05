@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Music Universe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-8">
+        <h1 class="text-white text-3xl font-bold text-center mb-6">Welcome to SPOTIFUE</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <% songs.forEach(s => { %>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-white">
+                    <h2 class="text-xl font-bold">Song Title:<%= s.title %></h2>
+                    <p class="mt-2">Duration: <%= s.duration %> minutes</p>
+                    <p class="mt-1">Genre: <%= s.Genre.name %></p>
+                    <p class="mt-1">Artist: <%= s.User.username %></p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
