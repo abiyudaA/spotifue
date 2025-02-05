@@ -1,0 +1,17 @@
+[{
+  "id": 1,
+  "title": "lagunya bernadia (User 2)",
+  "duration": 5,
+  "GenreId": 1,
+  "UserId": 2,
+  "songURL": "masukinLinknya"
+},
+{
+  "id": 2,
+  "title": "lagunya ardito (user 4)",
+  "duration": 3,
+  "GenreId": 2,
+  "UserId": 4,
+  "songURL": "masukinLinknya"
+}
+]

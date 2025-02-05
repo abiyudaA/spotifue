@@ -36,7 +36,7 @@ module.exports = {
         onUpdate: "cascade",
         onDelete: "cascade",
       },
-      songUrl: {
+      songURL: {
         allowNull: false,
         type: Sequelize.STRING
       },
