@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Song.belongsTo(models.User)
       Song.belongsTo(models.Genre)
+
     }
   }
   Song.init({
