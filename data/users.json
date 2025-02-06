@@ -30,26 +30,26 @@
   "username": "user5"
 },{
   "id": 6,
-  "email": "user5@mail.com",
+  "email": "user6@mail.com",
   "password": "444444",
   "role": "Artist",
-  "username": "user5"
+  "username": "user6"
 },{
   "id": 7,
-  "email": "user5@mail.com",
+  "email": "user7@mail.com",
   "password": "444444",
   "role": "Listener",
-  "username": "user5"
+  "username": "user7"
 },{
   "id": 8,
-  "email": "user5@mail.com",
+  "email": "user8@mail.com",
   "password": "444444",
   "role": "Artist",
-  "username": "user5"
+  "username": "user8"
 },{
   "id": 9,
-  "email": "user5@mail.com",
+  "email": "user9@mail.com",
   "password": "444444",
   "role": "Listener",
-  "username": "user5"
+  "username": "user9"
 }]
