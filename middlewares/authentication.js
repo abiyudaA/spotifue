@@ -20,7 +20,7 @@ const checkAddSong = async (req, res, next) => {
     }
 
     if (role === "Listener") {
-      res.redirect("/home/profile?error=Unauthorized");
+      res.redirect("/profile?error=Unauthorized");
     }
 
     next();

@@ -6,6 +6,8 @@ const usersRoute = require("./usersRoute");
 const userController = require("../controllers/userController");
 const { isAuthenticated } = require("../middlewares/authentication");
 
+router.get('/', userController.landingPage)
+
 //register
 router.get("/register", userController.userRegister);
 router.post("/register", userController.saveUserRegister);

@@ -76,7 +76,7 @@
         <div class="text-lg font-medium flex items-center space-x-4 relative">
           <a href="/profile">
             <img
-              src="/uploads/<%= profilePicture %>"
+              src="<%= profilePicture %>"
               alt="profilePicture"
               class="w-10 h-10 rounded-full"
             />
@@ -104,7 +104,13 @@
         </button>
         <% }) %>
       </div>
-
+      <br>
+      <% if (song) { %>
+        <p>
+          Song <%= song %> successfully added!!!
+        </p>     
+      <% } %>
+      <br>
       <!-- Recently Played -->
       <h2 class="text-xl font-bold mb-4">Recently Played</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
@@ -123,6 +129,7 @@
             <%= song.User.Profile.profileName %>
           </p>
           <p class="text-sm text-gray-400"><%= song.Genre.name %></p>
+          <p class="text-sm text-gray-400"><%= song.minutes %></p>
         </div>
         <% }) %>
       </div>
