@@ -6,19 +6,102 @@
     <title>Home - Music Universe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
-<body class="bg-gray-900 flex items-center justify-center min-h-screen">
-    <div class="container mx-auto p-8">
-        <h1 class="text-white text-3xl font-bold text-center mb-6">Welcome to SPOTIFUE</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <% songs.forEach(s => { %>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-white">
-                    <h2 class="text-xl font-bold">Song Title:<%= s.title %></h2>
-                    <p class="mt-2">Duration: <%= s.duration %> minutes</p>
-                    <p class="mt-1">Genre: <%= s.Genre.name %></p>
-                    <p class="mt-1">Artist: <%= s.User.username %></p>
+<body class="bg-gray-900 text-white h-screen flex overflow-hidden">
+    
+    <!-- Sidebar (Your Library) -->
+    <aside class="w-64 bg-gray-800 p-4 flex flex-col">
+        <h2 class="text-lg font-bold mb-4">Your Library</h2>
+        <ul class="space-y-2 overflow-auto flex-grow">
+            
+                <li class="p-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600">
+                    <h2> ini sebenernya untuk playslist </h2>
+                </li>
+    
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-auto">
+        <!-- Search Bar & Navigation -->
+        <div class="flex justify-between items-center mb-6">
+            <input type="text" placeholder="What do you want to play?" 
+                class="w-1/2 p-2 rounded bg-gray-700 text-white placeholder-gray-400">
+            <div class="text-lg font-medium">
+               <h2>ini username</h2>
+            </div>
+        </div>
+
+        <!-- Music Categories -->
+        <div class="flex space-x-4 mb-6">
+            <button class="bg-gray-700 px-4 py-2 rounded-full">All</button>
+            <button class="bg-gray-700 px-4 py-2 rounded-full">Music</button>
+            <button class="bg-gray-700 px-4 py-2 rounded-full">Podcasts</button>
+        </div>
+
+        <!-- Recently Played -->
+        <h2 class="text-xl font-bold mb-4">Recently Played</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <% songs.forEach(song => { %>
+                <div class="bg-gray-800 p-4 rounded-lg cursor-pointer">
+                    <h3 class="font-bold"><%= song.title %></h3>
+                    <p class="text-sm text-gray-400"><h2>ini nampilin username / profile name </h2></p>
                 </div>
             <% }) %>
         </div>
-    </div>
+
+        <!-- Explore Genres -->
+        <h2 class="text-xl font-bold mb-4">Explore Your Genres</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <% songs.forEach(genre => { %>
+                <div class="bg-gray-800 p-4 rounded-lg cursor-pointer">
+                    <h3 class="font-bold">#<%= genre.Genre.name %></h3>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+
+    
+    <!-- Footer: Now Playing / Song Details -->
+    <footer class="w-full bg-gray-800 p-4 fixed bottom-0 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <!-- Album Art -->
+            <img src="" class="w-16 h-16 rounded-full">
+            <div class="flex flex-col">
+                <h3 class="font-bold">Wak Wuw</h3>
+                <p class="text-sm text-gray-400">The Weeknd feat. Daft Punk</p>
+            </div>
+
+        <div>   
+        <!-- Player Controls -->
+        <div class="flex flex-col items-center flex-1 max-w-2xl mx-4">
+            <div class="flex items-center space-x-6">
+                <!-- Play/Pause Button -->
+                <button id="playButton" class="p-2 bg-green-500 rounded-full hover:bg-green-400 transition-colors">
+                    <svg id="playIcon" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pauseIcon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full flex items-center space-x-4 mt-2">
+                <span class="text-sm text-gray-400">1:23</span>
+                <input type="range" class="w-full bg-gray-600 rounded-lg h-1" value="60" max="100">
+                <span class="text-sm text-gray-400">3:45</span>
+            </div>
+        </div>
+        </div> 
+
+
+
+        <div class="flex items-center space-x-4">
+            <span class="text-sm text-gray-400">-</span>
+            <input type="range" class="w-full" value="60" max="100">
+            <span class="text-sm text-gray-400">+</span>
+        </div>
+    </footer>
+
 </body>
 </html>
