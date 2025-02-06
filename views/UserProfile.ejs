@@ -17,53 +17,60 @@
         class="w-32 h-32 rounded-full mx-auto mb-6"
       />
       <% if (deleted) { %>
-        <h2>song with title <%= deleted %> has been deleted!!</h2>
-       
+        <div class="bg-green-500/20 p-4 rounded-lg mb-4 border border-green-500">
+          <h2 class="text-green-500 font-semibold">Lagu dengan judul <%= deleted %> berhasil dihapus!</h2>
+        </div>
       <% } %>
       <h2 class="text-3xl font-bold"><%= getProfile.profileName %></h2>
       <p class="text-gray-400 mb-6 text-lg"><%= getProfile.bio %></p>
       <% songs.forEach(s => { %>
-        <li class="p-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600">
-          <div class="bg-gray-700 rounded-lg p-4 flex items-center space-x-4">
+        <li class="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 mb-4 flex justify-between items-center transition-all duration-200 group">
+          <div class="flex items-center space-x-4 flex-1">
             <img
-            src="/uploads/<%= s.songImage %>"
-            alt=""
-            class="w-16 h-16 rounded-full"
+              src="/uploads/<%= s.songImage %>"
+              alt=""
+              class="w-16 h-16 rounded-lg"
             />
-            <div class="content" style="justify-content: center;">
-              <h3 class="font-bold text-sm" >Title: <%= s.title %> </h3>
-              <h3 class="font-bold text-sm"> </h3>
-              <h3 class="font-bold text-sm"> Duration: <%= s.minutes %> </h3>
+            <div class="text-left">
+              <h3 class="font-bold text-lg">🎵 <%= s.title %></h3>
+              <p class="text-gray-300 text-sm">⏳ <%= s.minutes %> menit</p>
             </div>
           </div>
-          <a href="/home/delete/<%= s.id %>" id="">
-            <button>Delete</button>
+          <a 
+            href="/home/delete/<%= s.id %>" 
+            class="hover:scale-105 transition-transform"
+          >
+            <button class="bg-red-600/80 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm flex items-center gap-2 shadow-lg hover:shadow-red-500/30">
+              🗑 Delete
+            </button>
           </a>
         </li>
-        <br>
-        <% }) %>
-        
-        <!-- <%= JSON.stringify(songs) %> -->
-      <a
-        href="/profile/edit"
-        class="bg-blue-600 text-white px-2 py-1 rounded text-xs"
-      >
-        Edit
-      </a>
-
+      <% }) %>
+      
+      <div class="mt-8 flex justify-center gap-4">
         <a
-          href="/home/add"
-          class="bg-blue-600 text-white px-2 py-1 rounded text-xs"
+          href="/profile/edit"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center gap-2"
         >
-          Add Song
+          ✏️ Edit Profile
         </a>
         
-      <a
-        href="/home"
-        class="text-gray-400 hover:text-white text-xs ml-2"
-      >
-        Home
-      </a>
+        <a
+          href="/home/add"
+          class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-emerald-500/30 flex items-center gap-2"
+        >
+          ➕ Tambah Lagu
+        </a>
+      </div>
+
+      <div class="mt-6">
+        <a
+          href="/home"
+          class="inline-block bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200"
+        >
+          🏠 Kembali ke Home
+        </a>
+      </div>
     </div>
   </body>
 </html>

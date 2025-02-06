@@ -14,15 +14,15 @@
     <!-- Sidebar (Your Library) -->
     <aside class="w-64 bg-gray-800 p-4 flex flex-col h-screen overflow-hidden">
       <h2 class="text-lg font-bold mb-4">Artist</h2>
-      <ul class="space-y-2 overflow-y-auto flex-grow">
+      <ul class="space-y-4 px-4 overflow-y-auto flex-grow">
         <% artist.forEach(a => { %>
           <a href="/profile/<%= a.id %>">
-            <li class="p-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600">
-              <div class="bg-gray-700 rounded-lg p-4 flex items-center space-x-4">
+            <li class="p-2 bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-600 transition-colors">
+              <div class="rounded-lg p-4 flex items-center space-x-4">
                 <img
                   src="<%= a.Profile.profilePicture %>"
                   alt=""
-                  class="w-16 h-16 rounded-full"
+                  class="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
                   <h3 class="font-bold text-sm"><%= a.Profile.profileName %></h3>
@@ -30,18 +30,17 @@
               </div>
             </li>
           </a>
-          <br>
         <% }) %>
 
-        <h2 class="text-lg font-bold mb-4">Listeners</h2>
+        <h2 class="text-lg font-bold my-4">Listeners</h2>
         <% listener.forEach(a => { %>
           <a href="/profile/<%= a.id %>">
-            <li class="p-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600">
-              <div class="bg-gray-700 rounded-lg p-4 flex items-center space-x-4">
+            <li class="p-2 bg-gray-700 rounded-lg cursor-pointer hover:bg-gray-600 transition-colors">
+              <div class="rounded-lg p-4 flex items-center space-x-4">
                 <img
                   src="<%= a.Profile.profilePicture %>"
                   alt=""
-                  class="w-16 h-16 rounded-full"
+                  class="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
                   <h3 class="font-bold text-sm"><%= a.Profile.profileName %></h3>
@@ -49,101 +48,119 @@
               </div>
             </li>
           </a>
-          <br>
         <% }) %>
       </ul>
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-6 overflow-auto pb-24"> <!-- Added pb-16 to avoid overlap with the footer -->
+    <main class="flex-1 p-6 overflow-auto pb-24">
       <!-- Search Bar & Navigation -->
       <div class="flex justify-between items-center mb-6">
-        <form action="/home" method="get" class="flex w-full">
+        <form action="/home" method="get" class="flex w-full max-w-2xl">
           <input
             type="text"
             placeholder="What do you want to play?"
-            class="w-3/4 p-2 rounded bg-gray-700 text-white placeholder-gray-400 mr-2"
+            class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             name="title"
           />
           <button
             type="submit"
-            class="bg-blue-600 text-white p-2 rounded w-auto"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2"
           >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
             Search
           </button>
         </form>
 
-        <div class="text-lg font-medium flex items-center space-x-4 relative">
-          <a href="/profile">
+        <div class="text-lg font-medium flex items-center space-x-4">
+          <a href="/profile" class="group relative">
             <img
               src="<%= profilePicture %>"
               alt="profilePicture"
-              class="w-10 h-10 rounded-full"
+              class="w-12 h-12 rounded-full object-cover border-2 border-transparent group-hover:border-blue-500 transition-all"
             />
           </a>
-          <span><%= name %></span>
-          <!-- Log Out Button -->
+          <span class="font-semibold"><%= name %></span>
           <button
-            class="text-sm bg-red-600 text-white p-1 rounded-full mt-2"
+            class="text-sm bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition-all flex items-center gap-2"
             onclick="window.location.href='/logout'"
           >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
             Log Out
           </button>
         </div>
       </div>
 
       <!-- Music Categories -->
-      <h2 class="text-xl font-bold mb-4">Explore Your Genres</h2>
-      <div class="flex space-x-4 mb-6">
-        <button class="bg-gray-700 px-4 py-2 rounded-full">
-          <a href="/home">All</a>
+      <h2 class="text-2xl font-bold mb-4">Explore Your Genres</h2>
+      <div class="flex flex-wrap gap-3 mb-6">
+        <button class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors">
+          <a href="/home" class="text-sm font-medium">All</a>
         </button>
         <% genres.forEach(g => { %>
-        <button class="bg-gray-700 px-4 py-2 rounded-full">
-          <a href="<%= `/home?GenreId=${g.id}` %>"><%= g.name %></a>
+        <button class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors">
+          <a href="<%= `/home?GenreId=${g.id}` %>" class="text-sm font-medium"><%= g.name %></a>
         </button>
         <% }) %>
       </div>
-      <br>
+
+      <!-- Success Notification -->
       <% if (song) { %>
-        <p>
-          Song <%= song %> successfully added!!!
-        </p>     
+        <div class="bg-green-500/20 p-4 rounded-lg border border-green-500 mb-6 flex items-center gap-3 animate-bounce">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-green-500 font-semibold">
+            "<span class="font-bold text-white"><%= song %></span>" successfully added! 🎉
+          </p>
+        </div>
       <% } %>
-      <br>
+
       <!-- Recently Played -->
-      <h2 class="text-xl font-bold mb-4">Recently Played</h2>
+      <h2 class="text-2xl font-bold mb-4">Recently Played</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         <% songs.forEach(song => { %>
         <div
-          class="bg-gray-800 p-4 rounded-lg cursor-pointer"
+          class="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-750 transition-all group"
           onclick="playSong('<%= song.songURL %>', '<%= song.title %>', '/uploads/<%= song.songImage %>')"
         >
-          <img
-            src="/uploads/<%= song.songImage %>"
-            alt="<%= song.title %>"
-            class="w-full h-48 object-cover rounded mb-2"
-          />
-          <h3 class="font-bold"><%= song.title %></h3>
-          <p class="text-sm text-gray-400">
+          <div class="relative mb-3">
+            <img
+              src="/uploads/<%= song.songImage %>"
+              alt="<%= song.title %>"
+              class="w-full h-48 object-cover rounded-lg group-hover:brightness-75 transition-all"
+            />
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="font-bold mb-1 truncate"><%= song.title %></h3>
+          <p class="text-sm text-gray-300 truncate">
             <%= song.User.Profile.profileName %>
           </p>
-          <p class="text-sm text-gray-400"><%= song.Genre.name %></p>
-          <p class="text-sm text-gray-400"><%= song.minutes %></p>
+          <div class="flex items-center justify-between mt-2">
+            <span class="text-xs text-gray-400 bg-gray-700 px-2 py-1 rounded-full"><%= song.Genre.name %></span>
+            <span class="text-xs text-gray-400"><%= song.minutes %></span>
+          </div>
         </div>
         <% }) %>
       </div>
     </main>
 
-    <!-- Footer: Now Playing / Song Details -->
-    <footer
-      class="w-full bg-gray-800 p-4 fixed bottom-0 left-0 right-0 flex items-center justify-between"
-    >
+    <!-- Footer: Now Playing -->
+    <footer class="w-full bg-gray-800 p-4 fixed bottom-0 left-0 right-0 flex items-center justify-between">
       <div class="flex items-center space-x-4">
         <img
           id="nowPlayingImage"
           src="https://static6.depositphotos.com/1067236/577/i/450/depositphotos_5773905-stock-photo-blue-3d-question-mark.jpg"
-          class="w-16 h-16 rounded-full"
+          class="w-16 h-16 rounded-lg object-cover"
         />
         <div class="flex flex-col">
           <h3 id="nowPlayingTitle" class="font-bold"></h3>
@@ -151,8 +168,8 @@
         </div>
       </div>
 
-      <!-- Audio Player Section -->
-      <div class="flex flex-col items-center justify-center w-full max-w-3xl mx-auto mt-4">
+      <!-- Audio Player -->
+      <div class="flex flex-col items-center justify-center w-full max-w-3xl mx-auto">
         <audio id="audioPlayer" controls class="w-full">
           <source id="audioSource" type="audio/mpeg" />
           Your browser does not support the audio element.
@@ -161,7 +178,6 @@
     </footer>
 
     <script>
-      // Function to dynamically update the audio source and song details
       function playSong(songURL, songTitle, songImage) {
         const audioPlayer = document.getElementById("audioPlayer");
         const audioSource = document.getElementById("audioSource");
@@ -169,16 +185,24 @@
         const nowPlayingArtist = document.getElementById("nowPlayingArtist");
         const nowPlayingImage = document.getElementById("nowPlayingImage");
 
-        // Update the audio source
         audioSource.src = "/uploads/" + songURL;
-        audioPlayer.load(); // Reload the audio player with the new source
-        audioPlayer.play(); // Play the selected song
+        audioPlayer.load();
+        audioPlayer.play();
 
-        // Update song details
         nowPlayingTitle.textContent = songTitle;
-        nowPlayingArtist.textContent = "<%= name %>"; // Update artist name if needed dynamically
+        nowPlayingArtist.textContent = "<%= name %>";
         nowPlayingImage.src = songImage;
       }
+
+      // Optional: Remove bounce animation after 2 seconds
+      document.addEventListener('DOMContentLoaded', function() {
+        const successNotification = document.querySelector('.animate-bounce');
+        if(successNotification) {
+          setTimeout(() => {
+            successNotification.classList.remove('animate-bounce');
+          }, 2000);
+        }
+      });
     </script>
   </body>
 </html>
