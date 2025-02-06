@@ -1,5 +1,5 @@
 'use strict';
-
+const fs = require ('fs').promises
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -12,6 +12,15 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    let profiles = JSON.parse(await fs.readFile('./data/profile.json', 'utf-8'))
+    profiles = profiles.map(s => {
+     return {
+       ...s,
+       createdAt: new Date (),
+       updatedAt: new Date ()
+     }
+    })
+    await queryInterface.bulkInsert('Profiles', profiles, {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -21,5 +30,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('Profiles', null, {});
   }
 };

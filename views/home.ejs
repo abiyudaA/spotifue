@@ -12,7 +12,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <% songs.forEach(s => { %>
                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-white">
-                    <h2 class="text-xl font-bold">Song Title:<%= s.title %></h2>
+                    <!-- Song Image -->
+                    <img src="" alt="<%= s.title %> Cover" class="w-full h-48 object-cover rounded-md mb-4">
+                    
+                    <!-- Song Details -->
+                    <h2 class="text-xl font-bold">Song Title: <%= s.title %></h2>
                     <p class="mt-2">Duration: <%= s.duration %> minutes</p>
                     <p class="mt-1">Genre: <%= s.Genre.name %></p>
                     <p class="mt-1">Artist: <%= s.User.username %></p>
@@ -20,5 +24,14 @@
             <% }) %>
         </div>
     </div>
+    
+    <!-- Audio Player Section -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center justify-center shadow-lg">
+        <audio id="audioPlayer" controls style="width: 100%; max-width: 400px;">
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 </body>
 </html>
+

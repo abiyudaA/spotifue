@@ -1,5 +1,5 @@
 const { comparePassword } = require("../helpers/helper");
-const { User } = require("../models");
+const { User, Profile } = require("../models");
 
 class UserController {
     static async userRegister(req, res) {
@@ -21,14 +21,21 @@ class UserController {
             }
 
             // Create user in database
-            await User.create({
+            let user = await User.create({
                 email,
                 username,
                 password,
                 role,
+            }, {returning: true});
+
+            await Profile.create({
+                UserId: user.id,
+                profileName: 'username' + new Date ().getTime(),
+                bio: `Hello! I'm Using Spotifue now :)`,
+                profilePicture: 'https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg',
             });
 
-            res.redirect("/register");
+            res.redirect("/login");
         } catch (err) {
             console.log(err);
 
