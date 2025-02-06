@@ -64,15 +64,15 @@ class UserController {
                 }
             })
 
-            if (!user) {return res.send ('username is not defined')}
+            if (!user) {return res.send ('username incorrect')}
 
             if (!comparePassword(password, user.password)) {
                 return res.send ('password incorect!!')
             }
             
             // console.log(req.session)
-            // req.session.UserId = user.id
-            // req.session.role = user.role
+            req.session.UserId = user.id
+            req.session.role = user.role
             res.redirect ('/home')
         } catch (err) {
             console.log(err)
