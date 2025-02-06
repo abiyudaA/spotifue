@@ -13,11 +13,17 @@
     <aside class="w-64 bg-gray-800 p-4 flex flex-col">
         <h2 class="text-lg font-bold mb-4">Your Library</h2>
         <ul class="space-y-2 overflow-auto flex-grow">
-            
+            <!-- Artist Cards -->
+            <h1>artis card</h1>
                 <li class="p-2 bg-gray-700 rounded cursor-pointer hover:bg-gray-600">
-                    <h2> ini sebenernya untuk playslist </h2>
+                    <div class="bg-gray-700 rounded-lg p-4 flex items-center space-x-4">
+                        <img src="https://prcfindonesia.org/wp-content/uploads/2021/08/Bekantan.jpg" alt="" class="w-16 h-16 rounded-full">
+                        <div>
+                            <h3 class="font-bold text-sm"></h3>
+                        </div>
+                    </div>
                 </li>
-    
+           
         </ul>
     </aside>
 
@@ -25,67 +31,61 @@
     <main class="flex-1 p-6 overflow-auto">
         <!-- Search Bar & Navigation -->
         <div class="flex justify-between items-center mb-6">
-            <form action="/home" method="get">
-
+            <form action="/home" method="get" class="flex w-full">
                 <input type="text" placeholder="What do you want to play?" 
-                    class="w-1/2 p-2 rounded bg-gray-700 text-white placeholder-gray-400" name="title" >
-                <button type="submit">Search</button>
+                    class="w-3/4 p-2 rounded bg-gray-700 text-white placeholder-gray-400 mr-2" name="title">
+                <button type="submit" class="bg-blue-600 text-white p-2 rounded w-auto">Search</button>
             </form>
-                
-            
-            <div class="text-lg font-medium">
-                <img src="<%= profilePicture %>" alt="<%= name %>">
+
+            <div class="text-lg font-medium flex items-center space-x-4 relative">
+                <img src="<%= profilePicture %>" alt="<%= name %>" class="w-10 h-10 rounded-full">
+                <span><%= name %></span>
+                <!-- Log Out Button -->
+                <button class="text-sm bg-red-600 text-white p-1 rounded-full mt-2" onclick="window.location.href='/logout'">Log Out</button>
             </div>
         </div>
-        
+
         <!-- Music Categories -->
-        <!-- Explore Genres -->
         <h2 class="text-xl font-bold mb-4">Explore Your Genres</h2>
         <div class="flex space-x-4 mb-6">
             <button class="bg-gray-700 px-4 py-2 rounded-full"><a href="/home">All</a></button>
             <% genres.forEach(g => { %>
-            <button class="bg-gray-700 px-4 py-2 rounded-full" ><a href="<%= `/home?GenreId=${g.id}` %>"><%= g.name %></a></button> 
-            
-           <% }) %>
+                <button class="bg-gray-700 px-4 py-2 rounded-full"><a href="<%= `/home?GenreId=${g.id}` %>"><%= g.name %></a></button>
+            <% }) %>
         </div>
 
         <!-- Recently Played -->
-        <h2 class="text-xl font-bold mb-4">Play</h2>
+        <h2 class="text-xl font-bold mb-4">Recently Played</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <% songs.forEach(song => { %>
                 <div class="bg-gray-800 p-4 rounded-lg cursor-pointer">
-                    <img src="<%= song.songImage %>" alt="<%= song.title %>">
+                    <img src="<%= song.songImage %>" alt="<%= song.title %>" class="w-full h-48 object-cover rounded mb-2">
                     <h3 class="font-bold"><%= song.title %></h3>
                     <p class="text-sm text-gray-400"><%= song.User.Profile.profileName %></p>
                     <p class="text-sm text-gray-400"><%= song.Genre.name %></p>
                 </div>
             <% }) %>
         </div>
-
-        
     </main>
 
-    
     <!-- Footer: Now Playing / Song Details -->
-    <footer class="w-full bg-gray-800 p-4 fixed bottom-0 flex items-center justify-between">
+    <footer class="w-full bg-gray-800 p-4 fixed bottom-0 left-0 right-0 flex items-center justify-between">
         <div class="flex items-center space-x-4">
-            <!-- Album Art -->
-            <img src="https://prcfindonesia.org/wp-content/uploads/2021/08/Bekantan.jpg" class="w-16 h-16 rounded-full">
+            <img src="https://cdn.grid.id/crop/0x0:0x0/700x465/photo/2021/06/08/265351_webjpg-20210608122146.jpg" class="w-16 h-16 rounded-full">
             <div class="flex flex-col">
-                <h3 class="font-bold">Wak Wuw</h3>
-                <p class="text-sm text-gray-400">The Weeknd feat. Daft Punk</p>
+                <h3 class="font-bold">judul lagu</h3>
+                <p class="text-sm text-gray-400">penyanyinya siapa</p>
             </div>
-        <div>   
-       <!-- Audio Player Section -->
-    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center justify-center shadow-lg">
-        <audio id="audioPlayer" controls style="width: 100%; max-width: 400px;">
-            <source src="your-audio-file.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+        </div>
 
+        <!-- Audio Player Section -->
+        <div class="flex flex-col items-center justify-center w-full max-w-3xl mx-auto mt-4">
+            <audio id="audioPlayer" controls class="w-full">
+                <source src="https://open.spotify.com/track/1Es7AUAhQvapIcoh3qMKDL?si=1da10008cf004a40" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </footer>
-    
+
 </body>
 </html>
-
