@@ -7,6 +7,28 @@ const isAuthenticated = (req, res, next) => {
   next();
 };
 
+
+
+const checkAddSong = async (req, res, next) => {
+  try {
+    const { role, UserId } = req.session;
+
+    let user = await User.findByPk(UserId)
+
+    if (!user){
+      res.redirect ('/login')
+    }
+
+    if (role === "Listener") {
+      res.redirect("/home/profile?error=Unauthorized");
+    }
+
+    next();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 const checkRole = async (req, res, next) => {
   try {
     const { role, UserId } = req.session;
@@ -39,4 +61,5 @@ const checkRole = async (req, res, next) => {
 module.exports = {
   isAuthenticated,
   checkRole,
+  checkAddSong
 };

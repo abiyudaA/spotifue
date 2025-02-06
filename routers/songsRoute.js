@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const SongController = require("../controllers/songController");
 const upload = require("../helpers/multer");
-const { checkRole } = require("../middlewares/authentication");
+const { checkRole, checkAddSong } = require("../middlewares/authentication");
 
 router.get("/", SongController.home);
 
-router.get("/add", SongController.formAddSong);
+router.get("/add", checkAddSong, SongController.formAddSong);
 
 router.post(
   "/add",
