@@ -12,7 +12,7 @@ class ProfileController {
           UserId,
         }
       }
-
+      let {deleted} = req.query;
       if (role === "Artist") {
         option.include = [
           {
@@ -32,9 +32,13 @@ class ProfileController {
       if (!getProfile) {
         throw new Error("User profile not found");
       }
-      console.log(getProfile)
+
+
+      let songs = await Song.songbyArtist(UserId)
+      // console.log(getProfile, "aray?")
+      console.log(songs)
       // Render the profile page with the user profile and the songs
-      res.render("UserProfile.ejs", { getProfile });
+      res.render("UserProfile.ejs", { getProfile, songs, deleted });
     } catch (error) {
       console.log(error);
       res.send(error.message);

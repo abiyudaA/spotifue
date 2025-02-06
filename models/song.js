@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const {Genre} = require ('./')
 module.exports = (sequelize, DataTypes) => {
   class Song extends Model {
     /**
@@ -15,6 +16,24 @@ module.exports = (sequelize, DataTypes) => {
       Song.belongsTo(models.Genre)
 
     }
+
+    get minutes(){
+      let minutes = Math.floor(this.duration / 60)
+      let second = Math.floor(this.duration % 60)
+
+      return `${minutes} : ${second} minutes`
+    }
+
+    static songbyArtist(id){
+      let songs = Song.findAll({
+        where:{
+          UserId: id
+        }
+      })
+
+      return songs
+    }
+
   }
   Song.init({
     title: {

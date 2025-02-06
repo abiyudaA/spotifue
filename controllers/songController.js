@@ -8,7 +8,7 @@ const { where, Op } = require("sequelize");
 class SongController {
   static async home(req, res) {
     try {
-      let { GenreId, title } = req.query;
+      let { GenreId, title, song } = req.query;
 
       let option = {
         include: [
@@ -52,9 +52,9 @@ class SongController {
       const { profilePicture, name } = req.session;
       // console.log(profilePicture)
       // Pass the songs with songURL (MP3 file path) to the view
-      console.log(artist, 'ini monyet')
+      // console.log(artist, 'ini monyet')
 
-      res.render("home", { songs, genres, profilePicture, name, artist, listener });
+      res.render("home", { songs, genres, profilePicture, name, artist, listener, song });
     } catch (err) {
       console.log(err);
       res.send(err);
@@ -79,16 +79,19 @@ class SongController {
       const songURL = req.files.songURL[0].filename; // Get the filename of the uploaded MP3 file
 
       // Create the new song entry in the database
-      await Song.create({
+      let song = await Song.create({
         title,
         duration,
         GenreId,
         UserId,
         songURL: songURL, // Store the MP3 file name
         songImage: songImage, // Store the image file name
+      }, {
+        returning: true
       });
-
-      res.redirect("/home");
+      // console.log (song)
+      let {title: songtitle} = song
+      res.redirect(`/home?song=${songtitle}`);
     } catch (error) {
       console.log(error);
       res.send(error);
@@ -169,14 +172,25 @@ class SongController {
 
       if (!foundProfile) throw new Error("User Profile not found");
 
-      await Song.destroy({
+      let deleted = await Song.findOne({
+        include: User,
+        where:{
+          id: songId
+        }
+      })
+      
+      // console.log(deleted)
+
+       await Song.destroy({
         where: {
           UserId,
           id: songId,
-        },
+        }
       });
 
-      res.redirect("/profile");
+      let {title} = deleted
+
+      res.redirect(`/profile?deleted=${title}`);
     } catch (error) {
       console.log(error);
     }
