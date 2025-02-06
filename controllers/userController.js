@@ -61,7 +61,8 @@ class UserController {
             const user = await User.findOne({
                 where:{
                     username
-                }
+                },
+                include: Profile
             })
 
             if (!user) {return res.send ('username incorrect')}
@@ -73,6 +74,8 @@ class UserController {
             // console.log(req.session)
             req.session.UserId = user.id
             req.session.role = user.role
+            req.session.profilePicture = user.Profile.profilePicture
+            req.session.name = user.Profile.profileName
             res.redirect ('/home')
         } catch (err) {
             console.log(err)
