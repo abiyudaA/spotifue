@@ -48,10 +48,12 @@ class SongController {
         },
         include: Profile
       })
-      console.log(artist)
+      // console.log(artist)
       const { profilePicture, name } = req.session;
-      // console.log(User[0].Profile)
+      // console.log(profilePicture)
       // Pass the songs with songURL (MP3 file path) to the view
+      console.log(artist, 'ini monyet')
+
       res.render("home", { songs, genres, profilePicture, name, artist, listener });
     } catch (err) {
       console.log(err);
