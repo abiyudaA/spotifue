@@ -48,6 +48,7 @@ class SongController {
         },
         include: Profile
       })
+      console.log(artist)
       const { profilePicture, name } = req.session;
       // console.log(User[0].Profile)
       // Pass the songs with songURL (MP3 file path) to the view

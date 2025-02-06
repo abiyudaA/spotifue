@@ -30,7 +30,7 @@
   "id": 4,
   "title": "Beautiful Things",
   "duration": 192,
-  "GenreId": 2,
+  "GenreId": 3,
   "UserId": 8,
   "songURL": "songURL-1738853254784-673788209.mp3",
   "songImage": "songImage-1738853254775-397458741.png"
@@ -39,7 +39,7 @@
   "id": 5,
   "title": "Water",
   "duration": 219,
-  "GenreId": 2,
+  "GenreId": 5,
   "UserId": 4,
   "songURL": "songURL-1738853404722-950981198.mp3",
   "songImage": "songImage-1738853404717-137609234.png"
