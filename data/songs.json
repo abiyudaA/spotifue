@@ -1,19 +1,47 @@
-[{
+[
+{
   "id": 1,
-  "title": "lagunya bernadia (User 2)",
-  "duration": 5,
+  "title": "APT.",
+  "duration": 173,
   "GenreId": 1,
   "UserId": 2,
-  "songURL": "masukinLinknya",
-  "songImage": "masukinLinknya"
+  "songURL": "songURL-1738852793773-588899992.mp3",
+  "songImage": "songImage-1738852793768-512475723.png"
 },
 {
   "id": 2,
-  "title": "lagunya ardito (user 4)",
-  "duration": 3,
+  "title": "Die With A Smile",
+  "duration": 252,
   "GenreId": 2,
   "UserId": 4,
-  "songURL": "masukinLinknya",
-  "songImage": "masukinLinknya"
+  "songURL": "songURL-1738852985102-423577617.mp3",
+  "songImage": "songImage-1738852985098-425604042.png"
+},
+{
+  "id": 3,
+  "title": "BIRDS OF A FEATHER",
+  "duration": 230,
+  "GenreId": 2,
+  "UserId": 6,
+  "songURL": "songURL-1738853126336-882644844.mp3",
+  "songImage": "songImage-1738853126332-92656981.png"
+},
+{
+  "id": 4,
+  "title": "Beautiful Things",
+  "duration": 192,
+  "GenreId": 2,
+  "UserId": 8,
+  "songURL": "songURL-1738853254784-673788209.mp3",
+  "songImage": "songImage-1738853254775-397458741.png"
+},
+{
+  "id": 5,
+  "title": "Water",
+  "duration": 219,
+  "GenreId": 2,
+  "UserId": 4,
+  "songURL": "songURL-1738853404722-950981198.mp3",
+  "songImage": "songImage-1738853404717-137609234.png"
 }
 ]
