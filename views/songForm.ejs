@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Song</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Song Form Container -->
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-11/12 md:w-1/2">
+
+            <!-- Form Title -->
+            <h2 class="text-2xl font-bold mb-6 text-center">Add New Song</h2>
+
+            <!-- Form -->
+            <form action="/submit-song" method="POST">
+                <!-- Song Title -->
+                <div class="mb-4">
+                    <label for="songTitle" class="block text-sm font-medium">Song Title</label>
+                    <input type="text" id="songTitle" name="songTitle" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" placeholder="Enter song title" required>
+                </div>
+
+                <!-- Duration -->
+                <div class="mb-4">
+                    <label for="duration" class="block text-sm font-medium">Duration (in seconds)</label>
+                    <input type="number" id="duration" name="duration" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" placeholder="Enter song duration" required>
+                </div>
+
+                <!-- Genre -->
+                <div class="mb-4">
+                    <label for="genre" class="block text-sm font-medium">Genre</label>
+                    <select id="genre" name="genre" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" required>
+                        <option value="" disabled selected>Select Genre</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Classical">Classical</option>
+                        <option value="Electronic">Electronic</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-6 rounded-full">Add Song</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

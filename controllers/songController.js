@@ -34,6 +34,7 @@ class SongController {
 
             const songs = await Song.findAll(option)
 
+
             const genres = await Genre.findAll()
             const {profilePicture, name} = req.session
             // console.log(songs)

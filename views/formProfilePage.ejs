@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="flex justify-center mt-10">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-3xl">
+            <h2 class="text-2xl font-bold mb-6 text-center">Profile Form</h2>
+
+            <form action="/submit-profile" method="POST" enctype="multipart/form-data">
+                <!-- Profile Name -->
+                <div class="mb-4">
+                    <label for="profileName" class="block text-sm font-medium">Profile Name</label>
+                    <input type="text" id="profileName" name="profileName" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" placeholder="Enter your profile name" required>
+                </div>
+
+                <!-- Profile Picture -->
+                <div class="mb-4">
+                    <label for="profilePicture" class="block text-sm font-medium">Profile Picture</label>
+                    <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" required>
+                </div>
+
+                <!-- Biography -->
+                <div class="mb-4">
+                    <label for="biography" class="block text-sm font-medium">Biography</label>
+                    <textarea id="biography" name="biography" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" rows="4" placeholder="Tell us about yourself" required></textarea>
+                </div>
+
+                <!-- Song Title -->
+                <div class="mb-4">
+                    <label for="songTitle" class="block text-sm font-medium">Song Title</label>
+                    <input type="text" id="songTitle" name="songTitle" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" placeholder="Enter song title" required>
+                </div>
+
+                <!-- Genre -->
+                <div class="mb-4">
+                    <label for="genre" class="block text-sm font-medium">Genre</label>
+                    <input type="text" id="genre" name="genre" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" placeholder="Enter genre" required>
+                </div>
+
+                <!-- Duration -->
+                <div class="mb-4">
+                    <label for="duration" class="block text-sm font-medium">Duration (in seconds)</label>
+                    <input type="number" id="duration" name="duration" class="w-full p-2 mt-2 rounded bg-gray-700 text-white" placeholder="Enter song duration" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-6 rounded">Submit Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
