@@ -6,6 +6,7 @@
     <title>Home - Music Universe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
+
 <body class="bg-gray-900 text-white h-screen flex overflow-hidden">
     
     <!-- Sidebar (Your Library) -->
@@ -72,36 +73,15 @@
             </div>
 
         <div>   
-        <!-- Player Controls -->
-        <div class="flex flex-col items-center flex-1 max-w-2xl mx-4">
-            <div class="flex items-center space-x-6">
-                <!-- Play/Pause Button -->
-                <button id="playButton" class="p-2 bg-green-500 rounded-full hover:bg-green-400 transition-colors">
-                    <svg id="playIcon" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    <svg id="pauseIcon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                    </svg>
-                </button>
-            </div>
-            <!-- Progress Bar -->
-            <div class="w-full flex items-center space-x-4 mt-2">
-                <span class="text-sm text-gray-400">1:23</span>
-                <input type="range" class="w-full bg-gray-600 rounded-lg h-1" value="60" max="100">
-                <span class="text-sm text-gray-400">3:45</span>
-            </div>
-        </div>
-        </div> 
-
-
-
-        <div class="flex items-center space-x-4">
-            <span class="text-sm text-gray-400">-</span>
-            <input type="range" class="w-full" value="60" max="100">
-            <span class="text-sm text-gray-400">+</span>
-        </div>
+       <!-- Audio Player Section -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 p-4 flex items-center justify-center shadow-lg">
+        <audio id="audioPlayer" controls style="width: 100%; max-width: 400px;">
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
     </footer>
-
+    
 </body>
 </html>
+

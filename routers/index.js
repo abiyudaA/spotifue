@@ -14,7 +14,7 @@ router.post('/register', userController.saveUserRegister)
 router.get('/login', userController.userLogin)
 router.post('/login', userController.loggedIn)
 //middleware
-// router.use(isAuthenticated)
+router.use(isAuthenticated)
 
 
 //songs

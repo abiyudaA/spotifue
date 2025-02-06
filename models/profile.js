@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
     },
-    profilePicture: DataTypes.STRING,
+    profilePicture: DataTypes.TEXT,
     bio: DataTypes.TEXT
   }, {
     sequelize,

@@ -66,6 +66,10 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
+    songImage: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
   }, {
     sequelize,
     modelName: 'Song',

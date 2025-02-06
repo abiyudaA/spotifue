@@ -4,7 +4,8 @@
   "duration": 5,
   "GenreId": 1,
   "UserId": 2,
-  "songURL": "masukinLinknya"
+  "songURL": "masukinLinknya",
+  "songImage": "masukinLinknya"
 },
 {
   "id": 2,
@@ -12,6 +13,7 @@
   "duration": 3,
   "GenreId": 2,
   "UserId": 4,
-  "songURL": "masukinLinknya"
+  "songURL": "masukinLinknya",
+  "songImage": "masukinLinknya"
 }
 ]

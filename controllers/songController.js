@@ -15,7 +15,7 @@ class SongController {
                 ]
             })
 
-            console.log(songs)
+            // console.log(songs)
 
             res.render("home", {songs});
         } catch (err) {
