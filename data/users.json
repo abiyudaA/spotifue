@@ -28,4 +28,28 @@
   "password": "444444",
   "role": "Listener",
   "username": "user5"
+},{
+  "id": 6,
+  "email": "user5@mail.com",
+  "password": "444444",
+  "role": "Artist",
+  "username": "user5"
+},{
+  "id": 7,
+  "email": "user5@mail.com",
+  "password": "444444",
+  "role": "Listener",
+  "username": "user5"
+},{
+  "id": 8,
+  "email": "user5@mail.com",
+  "password": "444444",
+  "role": "Artist",
+  "username": "user5"
+},{
+  "id": 9,
+  "email": "user5@mail.com",
+  "password": "444444",
+  "role": "Listener",
+  "username": "user5"
 }]
