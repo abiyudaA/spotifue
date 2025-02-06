@@ -79,7 +79,7 @@
   "id": 10,
   "title": "Water",
   "duration": 219,
-  "GenreId": 5,
+  "GenreId": 1,
   "UserId": 4,
   "songURL": "songURL-1738853404722-950981198.mp3",
   "songImage": "songImage-1738853404717-137609234.png"
@@ -95,7 +95,7 @@
   "id": 12,
   "title": "Podcast Pendidikan",
   "duration": 77,
-  "GenreId": 1,
+  "GenreId": 5,
   "UserId": 4,
   "songURL": "songURL-1738865468381-850406572.mp3",
   "songImage": "songImage-1738865468377-15919564.png"
