@@ -6,7 +6,8 @@ const usersRoute = require ('./usersRoute')
 const userController = require ('../controllers/userController')
 const isAuthenticated = require('../middlewares/authentication')
 
-
+//landingPage
+router.get('/', userController.landingPage)
 //register
 router.get('/register', userController.userRegister)
 router.post('/register', userController.saveUserRegister)
@@ -19,7 +20,8 @@ router.use(isAuthenticated)
 
 //songs
 router.use('/home', songsRoute)
-
+//Profile
+router.use('/profile', profilesRoute)
 
 module.exports = router;
 

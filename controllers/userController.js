@@ -2,6 +2,16 @@ const { comparePassword } = require("../helpers/helper");
 const { User, Profile } = require("../models");
 
 class UserController {
+
+    static async landingPage(req, res) {
+        try {
+            res.render("landingPage");
+        } catch (err) {
+            console.log(err);
+
+            res.send(err);
+        }
+    }
     static async userRegister(req, res) {
         try {
             res.render("userRegister");
