@@ -3,6 +3,7 @@
 const { Song, Genre, User, Profile } = require("../models");
 const multer = require("multer");
 const path = require("path");
+const { where, Op } = require("sequelize");
 
 class SongController {
   static async home(req, res) {
@@ -35,10 +36,22 @@ class SongController {
 
       const songs = await Song.findAll(option);
       const genres = await Genre.findAll();
+      const artist = await User.findAll({
+        where:{
+          role: "Artist"
+        },
+        include: Profile
+      })
+      const listener = await User.findAll({
+        where:{
+          role: "Listener"
+        },
+        include: Profile
+      })
       const { profilePicture, name } = req.session;
-
+      // console.log(User[0].Profile)
       // Pass the songs with songURL (MP3 file path) to the view
-      res.render("home", { songs, genres, profilePicture, name });
+      res.render("home", { songs, genres, profilePicture, name, artist, listener });
     } catch (err) {
       console.log(err);
       res.send(err);
