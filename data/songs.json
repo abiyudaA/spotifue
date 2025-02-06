@@ -34,14 +34,70 @@
   "UserId": 8,
   "songURL": "songURL-1738853254784-673788209.mp3",
   "songImage": "songImage-1738853254775-397458741.png"
+},{
+  "id": 5,
+  "title": "Paint The Town Red",
+  "duration": 295,
+  "GenreId": 4,
+  "UserId": 8,
+  "songURL": "songURL-1738863932124-658944837.mp3",
+  "songImage": "songImage-1738863932113-394371533.png"
+},{
+  "id": 6,
+  "title": "Dancing In The Flames",
+  "duration": 256,
+  "GenreId": 4,
+  "UserId": 2,
+  "songURL": "songURL-1738864127792-912612802.mp3",
+  "songImage": "songImage-1738864127786-302663506.png"
+},{
+  "id": 7,
+  "title": "Lovin On Me",
+  "duration": 139,
+  "GenreId": 3,
+  "UserId": 4,
+  "songURL": "songURL-1738864297453-177901835.mp3",
+  "songImage": "songImage-1738864297447-20875529.png"
+},{
+  "id": 8,
+  "title": "greedy",
+  "duration": 154,
+  "GenreId": 1,
+  "UserId": 6,
+  "songURL": "songURL-1738864467376-893404723.mp3",
+  "songImage": "songImage-1738864467370-794796334.png"
+},{
+  "id": 9,
+  "title": "vampire",
+  "duration": 244,
+  "GenreId": 1,
+  "UserId": 8,
+  "songURL": "songURL-1738864777083-679919823.mp3",
+  "songImage": "songImage-1738864777078-592562642.png"
 },
 {
-  "id": 5,
+  "id": 10,
   "title": "Water",
   "duration": 219,
   "GenreId": 5,
   "UserId": 4,
   "songURL": "songURL-1738853404722-950981198.mp3",
   "songImage": "songImage-1738853404717-137609234.png"
+},{
+  "id": 11,
+  "title": "Snooze",
+  "duration": 280,
+  "GenreId": 3,
+  "UserId": 4,
+  "songURL": "songURL-1738864915814-740781345.mp3",
+  "songImage": "songImage-1738864915811-260603962.png"
+},{
+  "id": 12,
+  "title": "Podcast Pendidikan",
+  "duration": 77,
+  "GenreId": 1,
+  "UserId": 4,
+  "songURL": "songURL-1738865468381-850406572.mp3",
+  "songImage": "songImage-1738865468377-15919564.png"
 }
 ]
