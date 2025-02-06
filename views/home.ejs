@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Music Universe</title>
+    <title>Home - Spotifue</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
 
@@ -25,40 +25,44 @@
     <main class="flex-1 p-6 overflow-auto">
         <!-- Search Bar & Navigation -->
         <div class="flex justify-between items-center mb-6">
-            <input type="text" placeholder="What do you want to play?" 
-                class="w-1/2 p-2 rounded bg-gray-700 text-white placeholder-gray-400">
+            <form action="/home" method="get">
+
+                <input type="text" placeholder="What do you want to play?" 
+                    class="w-1/2 p-2 rounded bg-gray-700 text-white placeholder-gray-400" name="title" >
+                <button type="submit">Search</button>
+            </form>
+                
+            
             <div class="text-lg font-medium">
-               <h2>ini username</h2>
+                <img src="<%= profilePicture %>" alt="<%= name %>">
             </div>
         </div>
-
+        
         <!-- Music Categories -->
+        <!-- Explore Genres -->
+        <h2 class="text-xl font-bold mb-4">Explore Your Genres</h2>
         <div class="flex space-x-4 mb-6">
-            <button class="bg-gray-700 px-4 py-2 rounded-full">All</button>
-            <button class="bg-gray-700 px-4 py-2 rounded-full">Music</button>
-            <button class="bg-gray-700 px-4 py-2 rounded-full">Podcasts</button>
+            <button class="bg-gray-700 px-4 py-2 rounded-full"><a href="/home">All</a></button>
+            <% genres.forEach(g => { %>
+            <button class="bg-gray-700 px-4 py-2 rounded-full" ><a href="<%= `/home?GenreId=${g.id}` %>"><%= g.name %></a></button> 
+            
+           <% }) %>
         </div>
 
         <!-- Recently Played -->
-        <h2 class="text-xl font-bold mb-4">Recently Played</h2>
+        <h2 class="text-xl font-bold mb-4">Play</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <% songs.forEach(song => { %>
                 <div class="bg-gray-800 p-4 rounded-lg cursor-pointer">
+                    <img src="<%= song.songImage %>" alt="<%= song.title %>">
                     <h3 class="font-bold"><%= song.title %></h3>
-                    <p class="text-sm text-gray-400"><h2>ini nampilin username / profile name </h2></p>
+                    <p class="text-sm text-gray-400"><%= song.User.Profile.profileName %></p>
+                    <p class="text-sm text-gray-400"><%= song.Genre.name %></p>
                 </div>
             <% }) %>
         </div>
 
-        <!-- Explore Genres -->
-        <h2 class="text-xl font-bold mb-4">Explore Your Genres</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <% songs.forEach(genre => { %>
-                <div class="bg-gray-800 p-4 rounded-lg cursor-pointer">
-                    <h3 class="font-bold">#<%= genre.Genre.name %></h3>
-                </div>
-            <% }) %>
-        </div>
+        
     </main>
 
     
