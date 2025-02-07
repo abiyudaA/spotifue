@@ -102,8 +102,8 @@ class UserController {
       // console.log(req.session)
       req.session.UserId = user.id;
       req.session.role = user.role;
-      req.session.profilePicture = user.Profile.profilePicture;
-      req.session.name = user.Profile.profileName;
+      req.session.ProfileId = user.Profile.id
+      ;
       res.redirect("/home");
     } catch (err) {
       console.log(err);
