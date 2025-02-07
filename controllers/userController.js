@@ -13,7 +13,9 @@ class UserController {
   }
   static async userRegister(req, res) {
     try {
-      res.render("userRegister");
+      let {errors} = req.query;
+      if (errors) errors = errors.split(',')
+      res.render("userRegister", {errors});
     } catch (err) {
       console.log(err);
 
@@ -25,9 +27,9 @@ class UserController {
     try {
       const { email, username, password, role } = req.body;
 
-      if (!email || !username || !password || !role) {
-        return res.status(400).send("All fields are required");
-      }
+      // if (!email || !username || !password || !role) {
+      //   return res.redirect(``);
+      // }
 
       // Create user in database
       let user = await User.create(
@@ -50,9 +52,22 @@ class UserController {
 
       res.redirect("/login");
     } catch (err) {
-      console.log(err);
 
-      res.send(err);
+      if(err.name === "SequelizeValidationError"){
+        let errors = err.errors.map(el => {
+          return el.message
+        })
+      
+
+        res.redirect (`/register?errors=${errors}`)
+
+      } else{
+
+        console.log(err);
+  
+        res.send(err);
+      }
+
     }
   }
 

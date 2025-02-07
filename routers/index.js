@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const genresRoute = require("./genresRoute");
 const songsRoute = require("./songsRoute");
 const profilesRoute = require("./profilesRoute");
 const usersRoute = require("./usersRoute");
