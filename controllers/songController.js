@@ -48,13 +48,14 @@ class SongController {
         },
         include: Profile
       })
+      const { ProfileId, name } = req.session;
+      const profile = await Profile.findByPk(ProfileId)
       // console.log(artist)
-      const { profilePicture, name } = req.session;
       // console.log(profilePicture)
       // Pass the songs with songURL (MP3 file path) to the view
       // console.log(artist, 'ini monyet')
-
-      res.render("home", { songs, genres, profilePicture, name, artist, listener, song });
+console.log(profile, 'ini prof')
+      res.render("home", { songs, genres, profile, artist, listener, song });
     } catch (err) {
       console.log(err);
       res.send(err);

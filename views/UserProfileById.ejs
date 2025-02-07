@@ -12,7 +12,7 @@
   <body class="bg-gray-900 text-white h-screen flex items-center justify-center">
     <div class="bg-gray-800 p-12 rounded-lg shadow-lg w-2/5 text-center">
       <img
-        src="<%= profile.profilePicture %>"
+        src="<%= (profile.profilePicture.split('-')[0]=== "profilePicture") ? '/uploads/' + profile.profilePicture : profile.profilePicture %>"
         alt="Profile Picture"
         class="w-32 h-32 rounded-full mx-auto mb-6"
       />
