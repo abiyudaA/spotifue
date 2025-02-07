@@ -3,101 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-    <title>Document</title>
+    <title>Edit Song</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- views/editSongForm.ejs -->
+<body class="bg-gray-900 text-white">
+    <!-- Edit Song Form Container -->
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-11/12 md:w-1/2">
+            <!-- Form Title -->
+            <h2 class="text-3xl font-bold mb-6 text-center text-blue-500">Edit Song</h2>
 
-<h1 class="text-2xl font-bold mb-4">Edit Song</h1>
+            <!-- Form -->
+            <form action="/home/edit/<%= song.id %>" method="POST" enctype="multipart/form-data">
+                <!-- Song Title -->
+                <div class="mb-4">
+                    <label for="songTitle" class="block text-sm font-medium text-gray-300">Song Title</label>
+                    <input type="text" id="songTitle" name="title" value="<%= song.title %>" class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                </div>
 
-<form action="/home/edit/<%= song.id %>" method="POST" enctype="multipart/form-data">
-  <!-- Song Title -->
-  <div class="mb-4">
-    <label for="songTitle" class="block text-sm font-medium text-gray-300">Song Title</label>
-    <input
-      type="text"
-      id="songTitle"
-      name="title"
-      class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      value="<%= song.title %>"
-      required
-    />
-  </div>
+                <!-- Duration -->
+                <div class="mb-4">
+                    <label for="duration" class="block text-sm font-medium text-gray-300">Duration (in seconds)</label>
+                    <input type="number" id="duration" name="duration" value="<%= song.duration %>" class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                </div>
 
-  <!-- Duration -->
-  <div class="mb-4">
-    <label for="duration" class="block text-sm font-medium text-gray-300">Duration (in seconds)</label>
-    <input
-      type="number"
-      id="duration"
-      name="duration"
-      class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      value="<%= song.duration %>"
-      required
-    />
-  </div>
+                <!-- Genre -->
+                <div class="mb-4">
+                    <label for="genre" class="block text-sm font-medium text-gray-300">Genre</label>
+                    <select id="genre" name="GenreId" class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <% genres.forEach((genre) => { %>
+                            <option value="<%= genre.id %>" <%= genre.id === song.GenreId ? "selected" : "" %>><%= genre.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
 
-  <!-- Genre -->
-  <div class="mb-4">
-    <label for="genre" class="block text-sm font-medium text-gray-300">Genre</label>
-    <select
-      id="genre"
-      name="GenreId"
-      class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      required
-    >
-      <% genres.forEach((genre) => { %>
-        <option value="<%= genre.id %>" <%= genre.id === song.GenreId ? "selected" : "" %>>
-          <%= genre.name %>
-        </option>
-      <% }) %>
-    </select>
-  </div>
+                <!-- Song Image -->
+                <div class="mb-4">
+                    <label for="songImage" class="block text-sm font-medium text-gray-300">Song Image</label>
+                    <input type="file" id="songImage" name="image" class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <% if (song.songImage) { %>
+                        <div class="mt-2">
+                            <img src="/uploads/<%= song.songImage %>" alt="Current Image" class="w-32 h-32 object-cover rounded" />
+                        </div>
+                    <% } %>
+                </div>
 
-  <!-- Song URL -->
-  <div class="mb-4">
-    <label for="songURL" class="block text-sm font-medium text-gray-300">Song URL</label>
-    <input
-      type="url"
-      id="songURL"
-      name="songURL"
-      class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      value="<%= song.songURL %>"
-      required
-    />
-  </div>
+                <!-- Song URL -->
+                <div class="mb-4">
+                    <label for="songURL" class="block text-sm font-medium text-gray-300">Song URL</label>
+                    <input type="text" id="songURL" name="songURL" value="<%= song.songURL %>" class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                </div>
 
-  <!-- Song Image (Optional) -->
-  <div class="mb-4">
-    <label for="songImage" class="block text-sm font-medium text-gray-300">Song Image</label>
-    <input
-      type="file"
-      id="songImage"
-      name="image"
-      class="w-full p-3 mt-2 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <% if (song.songImage) { %>
-      <div class="mt-2">
-        <img
-          src="/uploads/<%= song.songImage %>"
-          alt="Current Image"
-          class="w-32 h-32 object-cover rounded"
-        />
-      </div>
-    <% } %>
-  </div>
-
-  <!-- Submit Button -->
-  <div class="flex justify-center">
-    <button
-      type="submit"
-      class="bg-blue-600 hover:bg-blue-500 text-white py-3 px-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-    >
-      Update Song
-    </button>
-  </div>
-</form>
-
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white py-3 px-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                        Update Song
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

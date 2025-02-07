@@ -39,25 +39,27 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: "Title is required",
-          },
-          notEmpty: {
-            msg: "Title is required",
-          },
+      validate: {
+        notNull: {
+          args: true,
+          msg: "title is required",
         },
+        notEmpty: {
+          msg: "title should not be empty!!!",
+        },
+      },
     },
     duration: DataTypes.INTEGER,
     GenreId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        notEmpty: {
-          msg: "Genre Id is required",
+        notNull: {
+          args: true,
+          msg: "Genre is required",
         },
         notEmpty: {
-          msg: "Genre Id is required",
+          msg: "Genre should not be empty!!!",
         },
       },
     },
@@ -77,11 +79,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: {
-          msg: "Link is required",
+        notNull: {
+          args: true,
+          msg: "songURL is required",
         },
         notEmpty: {
-          msg: "Link is required",
+          msg: "SongURL should not be empty!!!",
         },
       },
     },

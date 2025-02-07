@@ -13,6 +13,10 @@ const checkAddSong = async (req, res, next) => {
   try {
     const { role, UserId } = req.session;
 
+    if (!UserId) {
+      res.redirect('/login');
+    }
+
     let user = await User.findByPk(UserId)
 
     if (!user){
@@ -20,7 +24,7 @@ const checkAddSong = async (req, res, next) => {
     }
 
     if (role === "Listener") {
-      res.redirect("/profile?error=Unauthorized");
+      res.redirect("/profile?error=Unauthorized for this feature!");
     }
 
     next();

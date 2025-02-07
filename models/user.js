@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
             msg: "Email is required",
           },
           isEmail: {
-            msg: "Must be email formt",
+            msg: "Must be an email form",
           },
         },
       },
