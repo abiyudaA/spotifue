@@ -18,7 +18,7 @@
       />
       <% if (deleted) { %>
         <div class="bg-green-500/20 p-4 rounded-lg mb-4 border border-green-500">
-          <h2 class="text-green-500 font-semibold">Lagu dengan judul <%= deleted %> berhasil dihapus!</h2>
+          <h2 class="text-green-500 font-semibold">🎉 Songs with Title <%= deleted %> was Deleted Succesfully!!! 🎉</h2>
         </div>
       <% } %>
       <h2 class="text-3xl font-bold"><%= getProfile.profileName %></h2>
@@ -33,7 +33,7 @@
             />
             <div class="text-left">
               <h3 class="font-bold text-lg">🎵 <%= s.title %></h3>
-              <p class="text-gray-300 text-sm">⏳ <%= s.minutes %> menit</p>
+              <p class="text-gray-300 text-sm">⏳ <%= s.minutes %> Minute</p>
             </div>
           </div>
           <a 
@@ -45,7 +45,9 @@
             </button>
           </a>
           <a href="/home/edit/<%= s.id %>" id="">
-            <button>Edit</button>
+            <button class="bg-red-600/80 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold text-sm flex items-center gap-2 shadow-lg hover:shadow-red-500/30">
+              📝 Edit
+            </button>
           </a>
         </li>
       <% }) %>
@@ -60,9 +62,9 @@
         
         <a
           href="/home/add"
-          class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-emerald-500/30 flex items-center gap-2"
+          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/30 flex items-center gap-2"
         >
-          ➕ Tambah Lagu
+          ➕ Add Song
         </a>
       </div>
 
@@ -71,7 +73,7 @@
           href="/home"
           class="inline-block bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200"
         >
-          🏠 Kembali ke Home
+          🏠 Back Home
         </a>
       </div>
     </div>
