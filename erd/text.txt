@@ -1,0 +1,41 @@
+Table Users{
+  id SERIAL [primary key]
+  email VARCHAR(100) [unique, not null]
+  password VARCHAR(255) [not null]
+  role VARCHAR [not null]
+  username VARCHAR(50) [unique, not null]
+  createdAt DATE
+  updatedAt DATE
+}
+
+
+Table Profiles {
+  id SERIAL [primary key]
+  UserId integer [ref: - Users.id]
+  profileName varchar
+  bio TEXT
+  profilePicture IMAGE
+  createdAt DATE
+  updatedAt DATE
+}
+
+
+Table Songs {
+  id SERIAL [primary key]
+  title VARCHAR(255) [not null]
+  duration INT [not null]
+  genreId INTEGER [ref: < Genres.id]
+  userId INTEGER [ref: > Users.id]
+  songURL VARCHAR
+  songImage VARCHAR
+  createdAt DATE
+  updatedAt DATE
+}
+
+
+Table Genres {
+  id SERIAL [primary key]
+  name VARCHAR(255) [not null]
+  createdAt DATE
+  updatedAt DATE
+}
